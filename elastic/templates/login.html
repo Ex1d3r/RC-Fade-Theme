@@ -1,0 +1,550 @@
+<roundcube:include file="includes/layout.html" />
+
+<style>
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+body.task-login #layout-content,
+#layout-content,
+.task-login #layout-content {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 400px !important;
+    max-width: 90% !important;
+    margin: 0 !important;
+    padding: 40px 20px 20px 20px !important;
+    background-color: rgba(17, 24, 39, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    min-height: 420px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+
+body.task-login {
+    display: block !important;
+    background-color: #111827 !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+
+body.task-login::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: radial-gradient(circle at 10% 20%, rgba(69, 183, 209, 0.1) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.1) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.05) 0%, rgba(0, 0, 0, 0) 70%) !important;
+    z-index: -1 !important;
+    animation: gradientMove 20s ease infinite alternate !important;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+body #logo-title, 
+body .voice,
+body .noscriptwarning,
+body .formbuttons img,
+body #logo-name {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+}
+
+
+.propform .row i,
+.propform .row img,
+.propform input[type="text"] + i,
+.propform input[type="text"] + img,
+.propform input[type="password"] + i,
+.propform input[type="password"] + img,
+.propform .row::before,
+.propform .row::after,
+.input-group-text,
+.input-group-append,
+.input-group-prepend {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+}
+
+
+body.task-login #layout-content::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: -2px !important;
+    right: -2px !important;
+    bottom: -2px !important;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1) !important;
+    z-index: -1 !important;
+    border-radius: 18px !important;
+    opacity: 0.4 !important;
+    animation: gradient 5s ease infinite !important;
+    background-size: 300% 300% !important;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+body.task-login #layout-content #logo,
+#logo {
+    display: block !important;
+    width: 90px !important;
+    height: auto !important;
+    margin-top: -130px  !important;
+    transition: transform 0.3s ease !important;
+    filter: drop-shadow(0 0 8px rgba(78, 205, 196, 0.3)) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+  
+body.task-login .propform,
+.propform {
+    text-align: left !important;
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+
+body.task-login .propform .row,
+.propform .row {
+    margin-bottom: 10px !important;
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+}
+
+
+body.task-login .propform label,
+.propform label {
+    display: block !important;
+    margin-bottom: 5px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #e5e7eb !important;
+    transition: color 0.2s !important;
+    text-align: left !important;
+    float: none !important;
+    width: 100% !important;
+}
+
+body.task-login .propform input[type="text"],
+body.task-login .propform input[type="password"],
+.propform input[type="text"],
+.propform input[type="password"] {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    background-color: rgba(31, 41, 55, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: #e5e7eb !important;
+    transition: all 0.25s ease !important;
+    display: block !important;
+    float: none !important;
+    margin-top: 5px !important;
+    box-sizing: border-box !important;
+}
+
+
+body.task-login .propform input[type="text"]:focus,
+body.task-login .propform input[type="password"]:focus,
+.propform input[type="text"]:focus,
+.propform input[type="password"]:focus {
+    border-color: #4ECDC4 !important;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2) !important;
+    outline: none !important;
+    background-color: rgba(31, 41, 55, 1) !important;
+}
+
+
+body.task-login .propform input[type="submit"],
+body.task-login #login-form input[type="submit"],
+#login-form input[type="submit"],
+.formbuttons input[type="submit"],
+.formbuttons .button,
+input.button.mainaction,
+.formbuttons button,
+.propform input[type="submit"],
+body input[type="submit"],
+button[type="submit"],
+#rcmloginsubmit {
+    width: 100% !important;
+    display: block !important;
+    padding: 12px 16px !important;
+    margin-top: 5px !important;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4) !important;
+    background-size: 300% 300% !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    animation: gradient 5s ease infinite !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+}
+
+
+body.task-login .propform input[type="submit"]:hover,
+#login-form input[type="submit"]:hover,
+.formbuttons input[type="submit"]:hover,
+.formbuttons .button:hover,
+input.button.mainaction:hover,
+.formbuttons button:hover,
+.propform input[type="submit"]:hover,
+body input[type="submit"]:hover,
+button[type="submit"]:hover,
+#rcmloginsubmit:hover {
+    box-shadow: 0 6px 15px rgba(78, 205, 196, 0.4) !important;
+    transform: translateY(-2px) !important;
+    filter: brightness(1.05) !important;
+}
+
+body.task-login .propform input[type="submit"]:active,
+#login-form input[type="submit"]:active,
+.formbuttons input[type="submit"]:active,
+.formbuttons .button:active,
+input.button.mainaction:active,
+.formbuttons button:active,
+.propform input[type="submit"]:active,
+body input[type="submit"]:active,
+button[type="submit"]:active,
+#rcmloginsubmit:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3) !important;
+}
+
+
+.formbuttons,
+.formbuttons td {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+
+input[type="submit"] + img,
+button + img,
+.button + img,
+.formbuttons img,
+#rcmloginsubmit + img {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+.custom-footer {
+    margin-top: 15px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    color: rgba(229, 231, 235, 0.6) !important;
+    padding-top: 5px !important;
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+    clear: both !important;
+}
+
+.custom-footer::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 40px !important;
+    height: 5px !important;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4) !important;
+    border-radius: 2px !important;
+}
+
+.custom-footer a {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: opacity 0.2s !important;
+}
+
+
+#login-footer,
+#footer {
+    display: none !important;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body.task-login #layout-content {
+    animation: fadeIn 0.5s ease-out !important;
+}
+
+
+@media (max-width: 480px) {
+    body.task-login #layout-content {
+        padding: 30px 25px !important;
+        width: 320px !important;
+    }
+    
+    .propform input[type="text"],
+    .propform input[type="password"] {
+        padding: 12px 14px !important;
+    }
+    
+    .login-title {
+        font-size: 1.5rem !important;
+    }
+}
+</style>
+
+<div id="layout-content" class="selected no-navbar" role="main">
+    <roundcube:object name="logo" src="/images/logo.svg" id="logo" alt="Logo" />
+    
+    <roundcube:form id="login-form" name="login-form" method="post" class="propform">
+        <roundcube:object name="loginform" form="login-form" size="40" submit=true />
+        
+        <div class="custom-footer">
+            © 2025 <a href="https://exider.tech" target="_blank">exider.tech</a>
+        </div>
+    </roundcube:form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function applyButtonStyles() {
+        const submitButtons = document.querySelectorAll('input[type="submit"], .button, button[type="submit"], #rcmloginsubmit, .formbuttons input, .mainaction');
+        
+        submitButtons.forEach(button => {
+            Object.assign(button.style, {
+                width: '100%',
+                display: 'block',
+                padding: '12px 16px',
+                marginTop: '5px',
+                background: 'linear-gradient(90deg, #FF6B6B, #4ECDC4)',
+                backgroundSize: '300% 300%',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '15px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 10px rgba(78, 205, 196, 0.3)',
+                position: 'relative',
+                overflow: 'hidden',
+                animation: 'gradient 5s ease infinite',
+                marginBottom: '10px',
+                textAlign: 'center',
+                appearance: 'none',
+                WebkitAppearance: 'none',
+                MozAppearance: 'none'
+            });
+            
+            button.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 6px 15px rgba(78, 205, 196, 0.4)';
+                this.style.transform = 'translateY(-2px)';
+                this.style.filter = 'brightness(1.05)';
+            });
+            
+            button.addEventListener('mouseout', function() {
+                this.style.boxShadow = '0 4px 10px rgba(78, 205, 196, 0.3)';
+                this.style.transform = 'none';
+                this.style.filter = 'none';
+            });
+            
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(1px)';
+                this.style.boxShadow = '0 2px 8px rgba(78, 205, 196, 0.3)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 6px 15px rgba(78, 205, 196, 0.4)';
+            });
+        });
+    }
+    
+    function cleanupInterfaceElements() {
+        const buttonImages = document.querySelectorAll('input[type="submit"] + img, button + img, .button + img, .formbuttons img');
+        buttonImages.forEach(img => {
+            if (img && img.parentNode) {
+                img.parentNode.removeChild(img);
+            }
+        });
+        
+        const icons = document.querySelectorAll('.propform .row i, .propform .row img, .input-group-text, .input-group-append, .input-group-prepend');
+        icons.forEach(icon => {
+            if (icon && icon.parentNode) {
+                icon.parentNode.removeChild(icon);
+            }
+        });
+        
+        document.querySelectorAll('.propform .row').forEach(row => {
+            Array.from(row.children).forEach(child => {
+                if (child.tagName === 'I' || 
+                    child.tagName === 'IMG' || 
+                    child.classList.contains('input-group-text') ||
+                    child.classList.contains('input-group-append') ||
+                    child.classList.contains('input-group-prepend')) {
+                    row.removeChild(child);
+                }
+            });
+        });
+        
+        document.querySelectorAll('input').forEach(input => {
+            const nextSibling = input.nextElementSibling;
+            if (nextSibling && (
+                nextSibling.tagName === 'I' || 
+                nextSibling.tagName === 'IMG' || 
+                nextSibling.classList.contains('input-group-text'))) {
+                nextSibling.parentNode.removeChild(nextSibling);
+            }
+        });
+    }
+    
+    function centerForm() {
+        const layoutContent = document.getElementById('layout-content');
+        if (layoutContent) {
+            Object.assign(layoutContent.style, {
+                position: 'fixed',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                margin: '0',
+                width: window.innerWidth <= 480 ? '320px' : '400px',
+                maxWidth: '90%'
+            });
+        }
+    }
+    
+    applyButtonStyles();
+    cleanupInterfaceElements();
+    centerForm();
+    
+    const styleInterval = setInterval(function() {
+        applyButtonStyles();
+        cleanupInterfaceElements();
+    }, 100);
+    
+    setTimeout(function() {
+        clearInterval(styleInterval);
+    }, 2000);
+    
+    window.addEventListener('resize', centerForm);
+});
+
+window.onload = function() {
+    const allSubmitButtons = document.querySelectorAll('input[type="submit"], button[type="submit"], .button');
+
+    allSubmitButtons.forEach(button => {
+        button.setAttribute('style', `
+            width: 100% !important;
+            display: block !important;
+            padding: 12px 16px !important;
+            margin-top: 5px !important;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4) !important;
+            background-size: 300% 300% !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            animation: gradient 5s ease infinite !important;
+            margin-bottom: 10px !important;
+            text-align: center !important;
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+        `);
+    });
+};
+</script>
+
+<roundcube:include file="includes/footer.html" />

@@ -1,0 +1,127 @@
+<!-- Global Styles for Roundcube Theme made by github.com/ex1d3r -->
+<style>
+/* Base Theme Variables */
+:root {
+    --primary-gradient: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+    --primary-color: #4ECDC4;
+    --secondary-color: #FF6B6B;
+    --background-dark: #111827;
+    --surface-dark: rgba(17, 24, 39, 0.95);
+    --text-light: #e5e7eb;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(78, 205, 196, 0.3);
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Global Reset */
+body:not(.task-login) {
+    background-color: var(--background-dark) !important;
+    font-family: var(--font-family) !important;
+    color: var(--text-light) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    font-size: 13px !important;
+}
+
+body:not(.task-login)::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: radial-gradient(circle at 10% 20%, rgba(69, 183, 209, 0.1) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.1) 0%, rgba(0, 0, 0, 0) 40%),
+                radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.05) 0%, rgba(0, 0, 0, 0) 70%) !important;
+    z-index: -1 !important;
+    animation: gradientMove 20s ease infinite alternate !important;
+}
+
+
+#taskmenu {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+#taskmenu .special-buttons {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.menu.toolbar {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.menu.toolbar > .action-buttons {
+    margin: 0 !important;
+    padding: 10px !important;
+}
+
+.menu.toolbar > .action-buttons .compose {
+    display: block !important;
+    padding: 8px 12px !important;
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    color: white !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    text-align: center !important;
+}
+
+.menu.toolbar > .action-buttons .compose:hover {
+    filter: brightness(1.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+
+#taskmenu a.button {
+    display: block !important;
+    padding: 8px 12px !important;
+    color: var(--text-light) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    border-left: 2px solid transparent !important;
+    margin: 1px 0 !important;
+}
+
+#taskmenu a.button:hover {
+    background: rgba(78, 205, 196, 0.1) !important;
+    border-left-color: var(--primary-color) !important;
+}
+
+#taskmenu a.button.selected {
+    background: var(--primary-gradient) !important;
+    border-left-color: white !important;
+    color: white !important;
+}
+
+#taskmenu a.button:before {
+    margin-right: 8px !important;
+    opacity: 0.8 !important;
+}
+
+#layout-content {
+    background: var(--surface-dark) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    margin: 10px !important;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.dark-mode:not(.task-login) {
+    --background-dark: #0a0f1a;
+    --surface-dark: rgba(10, 15, 26, 0.8);
+}
+</style> 
