@@ -48,7 +48,11 @@ skins/elastic/
    ```php
    $config['skin'] = 'rcfadetheme';
    ```
-4. Refresh your webmail page
+4. **(Optional)** If you have the `managesieve` plugin installed, create a symlink:
+   ```bash
+   ln -s /var/lib/roundcube/plugins/managesieve/skins/elastic /var/lib/roundcube/plugins/managesieve/skins/rcfadetheme
+   ```
+5. Refresh your webmail page
 
 ### 🎨 Key Style Changes
 - Implemented gradient-based color scheme
@@ -97,7 +101,11 @@ skins/elastic/
    ```php
    $config['skin'] = 'rcfadetheme';
    ```
-4. Обновите страницу веб-почты
+4. **(Опционально)** Если у вас установлен плагин `managesieve`, создайте символическую ссылку:
+   ```bash
+   ln -s /var/lib/roundcube/plugins/managesieve/skins/elastic /var/lib/roundcube/plugins/managesieve/skins/rcfadetheme
+   ```
+5. Обновите страницу веб-почты
 
 ### 🎨 Ключевые Изменения в Стилях
 - Внедрена цветовая схема на основе градиентов
