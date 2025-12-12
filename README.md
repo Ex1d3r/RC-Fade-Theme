@@ -36,18 +36,19 @@ skins/elastic/
 ```
 
 ### 🛠️ Installation
-1. Navigate to your Roundcube installation directory
-2. Backup your current skin:
+1. Copy the theme directory to `/var/lib/roundcube/skins`:
    ```bash
-   cp -r /var/lib/roundcube/skins/elastic /var/lib/roundcube/skins/elastic.bak
+   cp -r rcfadetheme /var/lib/roundcube/skins/
    ```
-3. Replace the elastic skin with RC-Fade-Theme:
+2. Navigate to `/etc/roundcube`:
    ```bash
-   rm -rf /var/lib/roundcube/skins/elastic
-   cp -r path/to/RC-Fade-Theme /var/lib/roundcube/skins/elastic
+   cd /etc/roundcube
    ```
-4. Clear Roundcube cache
-5. Refresh your webmail page
+3. Edit `defaults.inc.php` and set the skin parameter:
+   ```php
+   $config['skin'] = 'rcfadetheme';
+   ```
+4. Refresh your webmail page
 
 ### 🎨 Key Style Changes
 - Implemented gradient-based color scheme
@@ -84,18 +85,19 @@ skins/elastic/
 ```
 
 ### 🛠️ Установка
-1. Перейдите в директорию установки Roundcube
-2. Сделайте резервную копию текущего скина:
+1. Скопируйте каталог темы в `/var/lib/roundcube/skins`:
    ```bash
-   cp -r /var/lib/roundcube/skins/elastic /var/lib/roundcube/skins/elastic.bak
+   cp -r rcfadetheme /var/lib/roundcube/skins/
    ```
-3. Замените скин elastic на RC-Fade-Theme:
+2. Перейдите в `/etc/roundcube`:
    ```bash
-   rm -rf /var/lib/roundcube/skins/elastic
-   cp -r path/to/RC-Fade-Theme /var/lib/roundcube/skins/elastic
+   cd /etc/roundcube
    ```
-4. Очистите кэш Roundcube
-5. Обновите страницу веб-почты
+3. Отредактируйте `defaults.inc.php` и измените параметр скина:
+   ```php
+   $config['skin'] = 'rcfadetheme';
+   ```
+4. Обновите страницу веб-почты
 
 ### 🎨 Ключевые Изменения в Стилях
 - Внедрена цветовая схема на основе градиентов
